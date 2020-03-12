@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SkyMark</title>
+    <meta charset='UTF-8'>
+    <meta name='description' content='A Simple Skynet Bookmarking Page'>
+    <meta name='author' content='Marcus Fox'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <script src='https://cdn.jsdelivr.net/npm/vue'></script>
+		<link rel='stylesheet' href='style.css'>
+	  <script type='text/javascript' src='main.js'></script>
+  </head>
+  <body>
+    <div class='container'>
+      <!-- Popup Bar -->
+      <div class='popup' id='popup'>
+        sdfgfgdsfg
+      </div>
+      <!-- Header -->
+      <div class='main-header'>
+        <h1 class='header-title'>
+          SkyMark
+        </h1>
+        <p class='header-text'>
+          Skynet bookmarking made easy.
+        </p>
+      </div>
+
+      <!-- Main content box -->
+      <div class='content' id='app'>
+
+        <!-- new bookmark input area -->
+        <div class='bookmark-input'>
+          <!--<form>-->
+            <div class='input-left'>
+              <label for='bookmarkLink'>
+                Bookmark Name:
+              </label>
+              <input type='text' id='bookmarkName' placeholder='Name'>
+              <label for='bookmarkLink'>
+                Bookmark Link:
+              </label>
+              <input type='text' id='bookmarkLink' placeholder='sia://...'>
+            </div>
+            <div class='input-right'>
+              <button onclick=addBookmark()>
+                Add Bookmark
+              </button>
+            </div>
+          <!--</form>-->
+        </div>
+
+        <hr>
+
+        <!-- Middle Button Area -->
+        <div>
+          <label for='portalText'>
+            Skylink Prefix:
+          </label>
+          <input class='middle' id='portalText' type='text' v-model='portal' @input='saveData()' >
+          <input class='middle' type="file" accept='.txt' id="importFile" @change="importBookmarks()">
+          <button class='middle' onclick="importBookmarks()">Import Text File</button>
+          <button class='middle' onclick="exportBookmarks()">Export Text File</button>
+        </div>
+
+        <!-- Bookmark table area -->
+        <div class='table-area'>
+          <table class='bookmark-table' v-if="refresh">
+            <thead>
+              <tr>
+      					<th class='th-name'>Name</th>
+      					<th class='th-link'>Link</th>
+      					<th class='th-actions'>Actions</th>
+      				</tr>
+            </thead>
+            <tbody>
+              <tr v-for='(bookmark, index) in bookmarks'>
+                <td class='td-name'>{{ bookmark.name }}</td>
+                <td class='td-link'><a target='_blank' v-bind:href='portal + "/" + bookmark.skylink'>{{ portal }}/{{ bookmark.skylink }}<a></td>
+                <td>
+                  <button class='table-button' v-bind:onclick='"removeBookmark(" + index + ")"'>
+                    &#10005;
+                  </button>
+                  <button class='table-button' v-bind:onclick='"raiseBookmark(" + index + ")"'>
+                    &#8624;
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
