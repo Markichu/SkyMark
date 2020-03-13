@@ -3,5 +3,8 @@
  Some browsers disallow this by default (Brave) and can be unblocked at brave://settings/content --> Cookies and site data --> Add/Allow.
 
 ### Demo
-https://siasky.net/AAAzCoWxhCgGpmnoETc0modZDSNOG2_Ffkos1_aF0T4pRQ
+https://siasky.net/AACV5jN_05wuMi4zl38B4dKe5K3_MaZyiwf4Qyaws10ULg
 Uploaded using SkyPages (https://siasky.net/CABMLShr4jkikvB15sd9cIP8LrfrmVePO24NzZE7lM5VTQ) v cool wow
+
+### Demo Video
+https://siasky.net/_AFIqwk8eFUrANYliIyCVQaYrvV5_vjBNMCzIp_U1IPhaA
